@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Doctor Dashboard | SmartCare-360</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <aside class="sidebar">
+
+        <a
+            href="index.html"
+            class="logo sidebar-logo"
+        >
+            <span class="logo-icon">
+                ✚
+            </span>
+
+            SmartCare<span>-360</span>
+        </a>
+
+
+        <div class="sidebar-profile">
+
+            <div
+                class="profile-avatar doctor-avatar-large"
+                id="doctorAvatar"
+            >
+                D
+            </div>
+
+            <div>
+
+                <strong id="doctorSidebarName">
+                    Doctor
+                </strong>
+
+                <span id="doctorSpecialty">
+                    Healthcare Provider
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a
+                href="doctor.html"
+                class="active"
+            >
+                <span>▦</span>
+                Dashboard
+            </a>
+
+            <a href="#patients">
+                <span>♙</span>
+                Patients
+            </a>
+
+            <a href="#doctorAppointments">
+                <span>◷</span>
+                Appointments
+            </a>
+
+            <a href="#emergencyAlerts">
+                <span>🚨</span>
+                Emergency Alerts
+            </a>
+
+        </nav>
+
+
+        <div class="doctor-availability">
+
+            <span class="online-dot"></span>
+
+            <div>
+
+                <strong>
+                    Available for consultation
+                </strong>
+
+                <small>
+                    Patients can book appointments
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="sidebar-logout"
+            id="doctorLogout"
+        >
+            ↪
+            Sign Out
+        </button>
+
+    </aside>
+
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <span class="dashboard-date">
+                    DOCTOR PORTAL
+                </span>
+
+                <h1>
+                    Welcome,
+                    <span id="doctorName">
+                        Doctor
+                    </span>
+                    👨‍⚕️
+                </h1>
+
+                <p>
+                    Here's your practice overview for today.
+                </p>
+
+            </div>
+
+
+            <div class="header-actions">
+
+                <button class="icon-button">
+                    ♢
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="header-avatar doctor">
+                    D
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- STATS -->
+
+        <section class="doctor-stat-grid">
+
+            <div class="doctor-stat-card blue">
+
+                <div class="doctor-stat-icon">
+                    ◷
+                </div>
+
+                <div>
+
+                    <span>
+                        Today's Appointments
+                    </span>
+
+                    <strong id="todayAppointmentCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="doctor-stat-card green">
+
+                <div class="doctor-stat-icon">
+                    ♙
+                </div>
+
+                <div>
+
+                    <span>
+                        Patients
+                    </span>
+
+                    <strong id="patientCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="doctor-stat-card red">
+
+                <div class="doctor-stat-icon">
+                    🚨
+                </div>
+
+                <div>
+
+                    <span>
+                        Emergency Alerts
+                    </span>
+
+                    <strong id="emergencyCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="doctor-stat-card purple">
+
+                <div class="doctor-stat-icon">
+                    ★
+                </div>
+
+                <div>
+
+                    <span>
+                        Rating
+                    </span>
+
+                    <strong id="doctorRating">
+                        5.0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- APPOINTMENTS -->
+
+        <section
+            class="section-card"
+            id="doctorAppointments"
+        >
+
+            <div class="section-card-header">
+
+                <div>
+
+                    <span class="card-label">
+                        SCHEDULE
+                    </span>
+
+                    <h2>
+                        Today's Appointments
+                    </h2>
+
+                </div>
+
+                <span class="status-badge success">
+                    ● Live
+                </span>
+
+            </div>
+
+
+            <div
+                class="appointment-table-wrapper"
+            >
+
+                <table class="professional-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Patient
+                            </th>
+
+                            <th>
+                                Time
+                            </th>
+
+                            <th>
+                                Type
+                            </th>
+
+                            <th>
+                                Reason
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="doctorAppointmentTable">
+
+                        <tr>
+
+                            <td
+                                colspan="5"
+                                class="table-loading"
+                            >
+                                Loading appointments...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- EMERGENCY -->
+
+        <section
+            class="section-card emergency-section"
+            id="emergencyAlerts"
+        >
+
+            <div class="section-card-header">
+
+                <div>
+
+                    <span class="card-label red-text">
+                        PRIORITY
+                    </span>
+
+                    <h2>
+                        Emergency Alerts
+                    </h2>
+
+                </div>
+
+                <span class="status-badge danger">
+                    Live Monitoring
+                </span>
+
+            </div>
+
+
+            <div
+                class="emergency-alert-list"
+                id="emergencyAlertList"
+            >
+
+                <div class="empty-state">
+
+                    <div>
+                        ✓
+                    </div>
+
+                    <strong>
+                        No active emergency alerts
+                    </strong>
+
+                    <p>
+                        Active patient SOS alerts
+                        will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PATIENTS -->
+
+        <section
+            class="section-card"
+            id="patients"
+        >
+
+            <div class="section-card-header">
+
+                <div>
+
+                    <span class="card-label">
+                        PATIENT CARE
+                    </span>
+
+                    <h2>
+                        Recent Patients
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="doctor-info-panel">
+
+                <div class="doctor-profile-large">
+
+                    <div class="doctor-profile-avatar">
+                        D
+                    </div>
+
+                    <div>
+
+                        <span class="card-label">
+                            SPECIALIST
+                        </span>
+
+                        <h3 id="profileDoctorName">
+                            Doctor
+                        </h3>
+
+                        <p id="profileSpecialty">
+                            General Physician
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="doctor-profile-details">
+
+                    <div>
+                        <span>Experience</span>
+                        <strong id="doctorExperience">
+                            --
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Qualification</span>
+                        <strong id="doctorQualification">
+                            --
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Consultation</span>
+                        <strong id="doctorFee">
+                            ₹--
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/app.js"></script>
+    <script src="js/doctor.js"></script>
+
+</body>
+
+</html>

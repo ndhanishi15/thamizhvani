@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Medicines | SmartCare-360</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <aside class="sidebar">
+
+        <a
+            href="index.html"
+            class="logo sidebar-logo"
+        >
+
+            <span class="logo-icon">
+                ✚
+            </span>
+
+            SmartCare<span>-360</span>
+
+        </a>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="patient.html">
+                <span>▦</span>
+                Dashboard
+            </a>
+
+            <a href="booking.html">
+                <span>＋</span>
+                Find Doctor
+            </a>
+
+            <a
+                href="medicines.html"
+                class="active"
+            >
+                <span>💊</span>
+                Medicines
+            </a>
+
+        </nav>
+
+
+        <div class="medicine-adherence-card">
+
+            <div class="adherence-circle">
+                <strong id="adherenceScore">
+                    100%
+                </strong>
+            </div>
+
+            <strong>
+                Medication adherence
+            </strong>
+
+            <p>
+                Keep taking your medicines
+                on schedule.
+            </p>
+
+        </div>
+
+
+        <button
+            class="sidebar-logout"
+            id="medicineLogout"
+        >
+            ↪
+            Sign Out
+        </button>
+
+    </aside>
+
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <span class="dashboard-date">
+                    MEDICATION MANAGEMENT
+                </span>
+
+                <h1>
+                    Your Medicines
+                </h1>
+
+                <p>
+                    Stay on schedule and keep track
+                    of your medication.
+                </p>
+
+            </div>
+
+
+            <button
+                class="btn btn-primary"
+                id="addMedicineButton"
+            >
+                + Add Medicine
+            </button>
+
+        </header>
+
+
+        <!-- MEDICINE SUMMARY -->
+
+        <section class="medicine-summary-grid">
+
+            <div class="summary-card blue">
+
+                <span class="summary-icon">
+                    💊
+                </span>
+
+                <div>
+
+                    <span>
+                        Active Medicines
+                    </span>
+
+                    <strong id="activeMedicineCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card green">
+
+                <span class="summary-icon">
+                    ✓
+                </span>
+
+                <div>
+
+                    <span>
+                        Today's Taken
+                    </span>
+
+                    <strong id="takenMedicineCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card orange">
+
+                <span class="summary-icon">
+                    ◷
+                </span>
+
+                <div>
+
+                    <span>
+                        Upcoming
+                    </span>
+
+                    <strong id="upcomingMedicineCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MEDICINES -->
+
+        <section class="section-card">
+
+            <div class="section-card-header">
+
+                <div>
+
+                    <span class="card-label">
+                        PRESCRIPTION PLAN
+                    </span>
+
+                    <h2>
+                        Medication Schedule
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="medicine-list"
+                id="medicineList"
+            >
+
+                <div class="loading-state">
+                    Loading medicines...
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ADD MEDICINE MODAL -->
+
+    <div
+        class="modal-overlay hidden"
+        id="medicineModal"
+    >
+
+        <div class="modal">
+
+            <button
+                class="modal-close"
+                id="closeMedicineModal"
+            >
+                ×
+            </button>
+
+
+            <div class="modal-header">
+
+                <div class="modal-icon blue">
+                    💊
+                </div>
+
+                <h2>
+                    Add Medicine
+                </h2>
+
+                <p>
+                    Add your medication schedule.
+                </p>
+
+            </div>
+
+
+            <form id="medicineForm">
+
+                <label>
+                    Medicine Name
+
+                    <input
+                        type="text"
+                        id="medicineName"
+                        placeholder="e.g. Paracetamol"
+                        required
+                    >
+
+                </label>
+
+
+                <label>
+                    Dosage
+
+                    <input
+                        type="text"
+                        id="medicineDosage"
+                        placeholder="e.g. 500 mg"
+                        required
+                    >
+
+                </label>
+
+
+                <div class="form-grid">
+
+                    <label>
+                        Frequency
+
+                        <select id="medicineFrequency">
+
+                            <option value="Daily">
+                                Daily
+                            </option>
+
+                            <option value="Twice Daily">
+                                Twice Daily
+                            </option>
+
+                            <option value="Weekly">
+                                Weekly
+                            </option>
+
+                        </select>
+
+                    </label>
+
+
+                    <label>
+                        Time
+
+                        <input
+                            type="time"
+                            id="medicineTime"
+                            required
+                        >
+
+                    </label>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary btn-full"
+                >
+                    Add Medicine
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/app.js"></script>
+    <script src="js/medicines.js"></script>
+
+</body>
+
+</html>
